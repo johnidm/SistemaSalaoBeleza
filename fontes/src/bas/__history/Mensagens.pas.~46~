@@ -1,0 +1,136 @@
+unit Mensagens;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+
+type
+  TFrmMensagem = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    BitBtn1: TBitBtn;
+    Label1: TLabel;
+    ImgAtencao: TImage;
+    ImgErro: TImage;
+    ImgInformacao: TImage;
+  private
+    { Private declarations }
+
+    procedure AtivarImagem(const ATipo: TMsgDlgType);
+
+  public
+    { Public declarations }
+    class procedure Mensagem(const ATipo: TMsgDlgType; const AMensagem: string);
+
+
+
+  end;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+procedure TFrmMensagem.AtivarImagem(const ATipo: TMsgDlgType);
+
+
+  procedure DefinirPosicao(const AImage: TImage);
+  begin
+    AImage.Top:= 20;
+    AImage.Left:= 20;
+  end;
+
+
+begin
+  case ATipo of
+    TMsgDlgType.mtWarning:
+      begin
+        ImgAtencao.Enabled:= True;
+        DefinirPosicao(ImgAtencao);
+
+        ImgErro.Enabled:= False;
+        ImgInformacao.Enabled:= False;
+      end;
+
+    TMsgDlgType.mtError:
+      begin
+        ImgErro.Enabled:= True;
+        DefinirPosicao(ImgErro);
+
+        ImgAtencao.Enabled:= False;
+        ImgInformacao.Enabled:= False;
+      end
+
+    TMsgDlgType.mtInformation:
+      begin
+        ImgInformacao.Enabled:= True;
+        DefinirPosicao(ImgInformacao);
+
+        ImgAtencao.Enabled:= False;
+        ImgErro.Enabled:= False;
+
+      end;
+    TMsgDlgType.mtConfirmation:
+      begin
+      end;
+
+    TMsgDlgType.mtCustom:
+      begin
+        ImgAtencao.Enabled:= False;
+        ImgErro.Enabled:= False;
+        ImgInformacao.Enabled:= False;
+      end;
+  end;
+
+
+end;
+
+class procedure TFrmMensagem.Mensagem(const ATipo: TMsgDlgType;
+  const AMensagem: string);
+var
+  FrmMensagem: TFrmMensagem;
+begin
+  FrmMensagem:= TFrmMensagem.Create(nil);
+  try
+    case ATipo of
+      TMsgDlgType.mtWarning:
+        begin
+          FrmMensagem.Caption:= 'Atenção';
+
+        end ;
+      TMsgDlgType.mtError:
+        begin
+          FrmMensagem.Caption:= 'Erro';
+
+        end;
+      TMsgDlgType.mtInformation:
+        begin
+          FrmMensagem.Caption:= 'Informação';
+
+        end;
+      TMsgDlgType.mtConfirmation:
+        begin
+          FrmMensagem.Caption:= 'Confirmação';
+
+        end;
+      TMsgDlgType.mtCustom:
+        begin
+          FrmMensagem.Caption:= EmptyStr;
+
+        end;
+    end;
+
+    FrmMensagem.ShowModal;
+  finally
+    FreeAndnil(FrmMensagem);
+
+  end;
+
+end;
+
+end.

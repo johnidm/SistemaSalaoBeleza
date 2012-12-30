@@ -1,0 +1,40 @@
+unit AgendamentoOnLine;
+
+interface
+
+uses
+  Modelo,
+  MapaDB;
+
+type
+  TAgendamentoOnLine = class(TModelo)
+  private
+    type
+      TEstado = (estAtivo = Ord('A'), estInativo = Ord('I'));
+
+  private
+    FID: Integer;
+    FCodigo: Integer;
+    FEstado: TEstado;
+    FEMail: string;
+    FSenha: string;
+
+  published
+    [TMapaDB('agendamentoonline', 'id_agendamentoonline', [atrPesquisa]) ]
+    property ID: Integer read FID write FID;
+
+    [TMapaDB('agendamentoonline', 'fl_agendamentoonline', []) ]
+    property Estado: TEstado read FEstado write FEstado;
+
+    [TMapaDB('agendamentoonline', 'tx_agendamentoonlineemail', []) ]
+    property EMail: string read FEMail write FEMail;
+
+    [TMapaDB('agendamentoonline', 'sn_agendamentoonlinesenha', []) ]
+    property Senha: string read FSenha write FSenha;
+
+
+  end;
+
+implementation
+
+end.

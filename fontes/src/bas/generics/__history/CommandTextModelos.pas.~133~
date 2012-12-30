@@ -1,0 +1,90 @@
+unit CommandTextModelos;
+
+interface
+
+uses
+  System.SysUtils,
+  System.RTTI,
+  Modelo,
+  Funcoes,
+  MapaDB;
+
+type
+  TCommandTextModelos = class
+  public
+    class function Select(const AClassType: TClass): string;
+
+    class function SelectTeste: string;
+  end;
+
+implementation
+
+
+
+{ TCommandTextModelos }
+
+
+class function TCommandTextModelos.Select(const AClassType: TClass): string;
+var
+  oRttiType: TRttiType;
+  oRttiProperty: TRttiProperty;
+  oRttiContext: TRttiContext;
+  oCustomAttribute: TCustomAttribute;
+
+  ListaDeCampos, ClausulaWhere, Tabela: string;
+
+
+begin
+  oRttiContext:= TRttiContext.Create;
+  try
+
+    oRttiType:= oRttiContext.GetType( AClassType );
+
+    for oRttiProperty in oRttiType.GetProperties do
+    begin
+      for oCustomAttribute in oRttiProperty.GetAttributes do
+      begin
+        if ( oCustomAttribute is TMapaDB ) then
+        begin
+          if (Tabela = EmptyStr) then
+            Tabela:= ( TMapaDB( oCustomAttribute ).TabelaDB );
+
+          if (ListaDeCampos <> EmptyStr) then
+            ListaDeCampos:= ListaDeCampos + ' , ';
+
+          ListaDeCampos:= ListaDeCampos +  ( TMapaDB( oCustomAttribute ).CampoDB );
+
+          if ( TMapaDB( oCustomAttribute ).AtributosCampoDB = atrPesquisa ) then
+          begin
+            if (ClausulaWhere <> EmptyStr) then
+              ClausulaWhere:= ' and ' + ClausulaWhere;
+
+            ClausulaWhere:= ClausulaWhere +  ( TMapaDB( oCustomAttribute ).CampoDB ) + ' = :' +
+              TMapaDB( oCustomAttribute ).CampoDB;
+          end;
+
+        end;
+      end;
+    end;
+  finally
+    oRttiContext.Free;
+  end;
+
+  Result:=
+      ' select ' +
+      ListaDeCampos   +
+      ' from '   +
+      Tabela   ;
+  //    ' where '  +
+  //    ClausulaWhere;
+end;
+
+
+
+class function TCommandTextModelos.SelectTeste: string;
+begin
+  Result:=
+    ' select CAMPO1 from TABELA where CAMPO1 = :CAMPO1 ';
+end;
+
+end.

@@ -1,0 +1,14 @@
+unit MapaControlesTela;
+
+interface
+
+type
+  TMapaControlesTela= class(TCustomAttribute)
+
+
+
+  end;
+
+implementation
+
+end.

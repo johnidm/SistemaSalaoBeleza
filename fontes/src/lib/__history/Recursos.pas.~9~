@@ -1,0 +1,13 @@
+unit Recursos;
+
+interface
+
+resourcestring
+  RSInformeNomeCliente = 'Informe o nome do cliente';
+  RSFalhaSalvarCadastro = 'Falha ao salvar cadastro' +#13#10+#13#10+ '%s';
+  RSIDMaximoAtingido = 'ID máximo atingido tabela[%s]';
+  RSClienteNaoEncontrado = 'Cliente não encontrado'.
+
+implementation
+
+end.

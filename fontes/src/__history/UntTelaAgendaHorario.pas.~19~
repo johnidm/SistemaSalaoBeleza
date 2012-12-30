@@ -1,0 +1,53 @@
+unit UntTelaAgendaHorario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntTelaBase01, W7Classes, W7Panels,
+  Vcl.StdCtrls, W7Labels, Vcl.ExtCtrls, PlannerCal, DBPlannerCal, Planner,
+  AeroButtons, UntTelaBase02, AdvGlassButton;
+
+type
+  TFrmTelaAgandaHorario = class(TFrmTelaBase01)
+    W7Panel1: TW7Panel;
+    DBPlannerCalendar1: TDBPlannerCalendar;
+    Panel1: TPanel;
+    Planner1: TPlanner;
+    AdvGlassButton1: TAdvGlassButton;
+    procedure W7ActiveLabel1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    class procedure AbirTelaAgandaHorario;
+  end;
+
+
+
+implementation
+
+{$R *.dfm}
+
+class procedure TFrmTelaAgandaHorario.AbirTelaAgandaHorario;
+var
+  FrmTelaAgandaHorario: TFrmTelaAgandaHorario;
+begin
+  FrmTelaAgandaHorario:= TFrmTelaAgandaHorario.Create(nil);
+  try
+    FrmTelaAgandaHorario.ShowModal;
+
+  finally
+    if ( Assigned (FrmTelaAgandaHorario) ) then
+      FreeAndNil(FrmTelaAgandaHorario)
+  end;
+
+end;
+
+procedure TFrmTelaAgandaHorario.W7ActiveLabel1Click(Sender: TObject);
+begin
+  inherited;
+  TFrmTelaBase02.AbrirTela;
+end;
+
+end.

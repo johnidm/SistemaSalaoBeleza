@@ -1,0 +1,19 @@
+unit UFS;
+
+interface
+
+type
+  TUFS = class
+  private
+    FID: Integer;
+    FUF: string;
+    FDescricao: string;
+  published
+    property ID: Integer read FID write FID;
+    property UF: string read FUF write FUF;
+    property Descricao: string read FDescricao write FDescricao;
+  end;
+
+implementation
+
+end.

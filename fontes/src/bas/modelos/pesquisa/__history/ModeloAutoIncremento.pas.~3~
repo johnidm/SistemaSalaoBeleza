@@ -1,0 +1,10 @@
+unit ModeloAutoIncremento;
+
+interface
+
+type
+  T
+
+implementation
+
+end.

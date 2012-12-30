@@ -1,0 +1,63 @@
+unit Pesquisa.Cliente;
+
+interface
+
+uses
+  Pesquisa.IInterface, Pesquisa.Tela, Vcl.Controls, System.SysUtils, Vcl.StdCtrls,
+  Lib.Funcoes;
+
+type
+  TPesquisaCliente = class( TInterfacedObject, IBuscaCampo )
+
+  public
+    function Buscar(AControle: TWinControl; out ARetorno: Integer): Boolean;
+
+  end;
+
+implementation
+
+{ TPesquisaCliente }
+
+function TPesquisaCliente.Buscar(AControle: TWinControl; out ARetorno: Integer): Boolean;
+var
+  FrmTelaPesquisa: TFrmTelaPesquisa;
+begin
+  Result:= False;
+  FrmTelaPesquisa:= TFrmTelaPesquisa.Create( AControle.Owner );
+  try
+    FrmTelaPesquisa.Caption:= 'Pesquisa clientes';
+    FrmTelaPesquisa.AdvEdit1.LabelCaption:= 'Nome';
+
+    FrmTelaPesquisa.ComandoSQL:=
+      ' select ' + TFuncoes.InserirAspasDuplas('id_cliente') + ', ' +
+                   TFuncoes.InserirAspasDuplas('nm_cliente') +
+      '   from ' + TFuncoes.InserirAspasDuplas('clientes') +
+      '  where ' + TFuncoes.InserirAspasDuplas('dt_exclusao') + ' is null ';
+
+    with FrmTelaPesquisa do
+    begin
+      AdicionaMapaCampos( 'id_cliente', 'Código', 70 );
+      AdicionaMapaCampos( 'nm_cliente', 'Nome', 350  );
+    end;
+    FrmTelaPesquisa.Preparar;
+
+    FrmTelaPesquisa.DefinirTamanho( 375, 500  );
+
+    FrmTelaPesquisa.CampoLocate:= 'nm_cliente';
+
+    FrmTelaPesquisa.ShowModal;
+    if (FrmTelaPesquisa.ModalResult = mrOk) then
+    begin
+      TCustomEdit( AControle ).Text:=
+        FrmTelaPesquisa.ClientDataSet1.Fields[0].Value;
+
+      ARetorno:= FrmTelaPesquisa.ClientDataSet1.Fields[0].Value;
+
+      Result:= True;
+    end;
+  finally
+    FreeAndNil(FrmTelaPesquisa);
+  end;
+end;
+
+end.

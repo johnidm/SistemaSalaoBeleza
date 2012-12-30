@@ -1,0 +1,29 @@
+unit Hlp.Exceptions;
+
+interface
+
+uses
+  System.SysUtils;
+
+type
+  TExceptions = class
+
+
+  public
+    class procedure SistemaOnException(Sender: TObject;
+      E: Exception);
+  end;
+
+
+
+
+implementation
+
+{ TExceptions }
+
+class procedure TExceptions.SistemaOnException(Sender: TObject; E: Exception);
+begin
+
+end;
+
+end.

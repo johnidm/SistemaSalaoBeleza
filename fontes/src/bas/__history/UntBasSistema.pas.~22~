@@ -1,0 +1,26 @@
+unit UntBasSistema;
+
+interface
+
+uses
+  Records;
+
+type
+  TSistema = class
+  public
+    // Controla as dimensões para abrir as telas na area de trabalho
+    // do sistema
+    DimencoesAberturaTela: TDimencoesAberturaTela;
+
+  end;
+
+var
+  Sistema: TSistema;
+
+implementation
+
+
+initialization
+  Sistema:= TSistema.Create;
+
+end.

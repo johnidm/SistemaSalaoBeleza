@@ -1,0 +1,11 @@
+unit UntSistema;
+
+interface
+
+type
+  TSistema = class
+
+  end;
+implementation
+
+end.

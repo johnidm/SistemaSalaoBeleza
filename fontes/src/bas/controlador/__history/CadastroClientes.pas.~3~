@@ -1,0 +1,19 @@
+
+unit CadastroClientes;
+
+interface
+
+uses
+  Clientes;
+
+type
+  TControladorCadastroCliente = class
+
+  private
+    property Cliente read TCliente
+
+  end;
+
+implementation
+
+end.

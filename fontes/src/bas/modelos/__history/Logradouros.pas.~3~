@@ -1,0 +1,20 @@
+unit Logradouros;
+
+interface
+
+type
+  TLogradouros = class
+  private
+    FID: Integer;
+    FDescricao: string;
+
+  published
+    property ID: Integer read FID write FID;
+    property Descricao: string read FDescricao write FDescricao;
+
+
+  end;
+
+implementation
+
+end.

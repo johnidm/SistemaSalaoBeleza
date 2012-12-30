@@ -1,0 +1,48 @@
+/*
+Descrição:
+  Tabela utilizada para gravar os dados das cidades
+
+Histórico de alterações:
+  v1.00  - 24/05/2012 
+    - Criação da tabela
+  v1.00a - 27/05/2012
+    - Incluído a chave primaria id_cidade_cidades_pk, o indice ds_cidade_cidades_uq e a chave
+	estrangeira cd_usuario_cidades_fk	
+*/  
+    
+  
+ create table MUNICIPIOS (
+   ID_MUNICIPIOS		integer not null
+  
+  ,DS_MUNICIPIOS 		varchar (  40) not null
+  
+  ,DT_CADASTRO   	timestamp not null
+  ,DT_MANUTENCAO 	timestamp not null
+  ,DT_EXCLUSAO   	timestamp default null
+  
+  ,CD_USUARIO    	integer not null  
+  
+  ,constraint ID_MUNICIPIOS_CIDADES_PK primary key (ID_MUNICIPIOS)
+  ,constraint DS_MUNICIPIOS_CIDADES_UQ unique (DS_MUNICIPIOS)
+  
+  ,constraint CD_MUNICIPIOS_CIDADES_FK foreign key (CD_USUARIO) references USUARIOS(ID_USUARIO)
+    on delete no action on update cascade    
+  
+);  
+
+
+
+create generator ID_MUNICIPIO_MUNICIPIOS_GN ;
+set generator ID_MUNICIPIO_MUNICIPIOS_GN to 0;
+
+
+
+create or alter trigger ID_MUNICIPIO_CIDADES_TG for CIDADES
+  active before insert 
+  position 0
+as
+begin
+
+  new.ID_CIDADE = gen_id( ID_CIDADE_CIDADES_GN ,1 ); 
+
+end;

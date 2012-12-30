@@ -1,0 +1,28 @@
+unit Formulario.CadastroUFS;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, TelaBase01, Vcl.StdCtrls, AdvEdit,
+  AdvEdBtn, AeroButtons, W7Classes, W7Panels;
+
+type
+  TFrmCadastroUF = class(TFrmTelaBase01)
+    EdtCodigo: TAdvEditBtn;
+    EdtNome: TAdvEdit;
+    AdvEdit1: TAdvEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadastroUF: TFrmCadastroUF;
+
+implementation
+
+{$R *.dfm}
+
+end.

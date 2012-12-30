@@ -1,0 +1,28 @@
+unit UntBasSistema;
+
+interface
+
+type
+  TDimencoesAberturaTela = record
+    DistanciaTopo: Integer;
+    DistanciaEsquerda: Integer;
+    LarguraPadrao: Integer;
+  end;
+
+  TSistema = class
+  public
+    DimencoesAberturaTela: TDimencoesAberturaTela;
+  end;
+
+var
+  Sistema: TSistema;
+
+implementation
+
+
+initialization
+
+  Sistema:= TSistema.Create;
+
+
+end.

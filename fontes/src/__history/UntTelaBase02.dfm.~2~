@@ -1,0 +1,9 @@
+inherited FrmTelaBase1: TFrmTelaBase1
+  Caption = 'FrmTelaBase02'
+  ClientHeight = 247
+  ClientWidth = 396
+  ExplicitWidth = 412
+  ExplicitHeight = 285
+  PixelsPerInch = 96
+  TextHeight = 13
+end

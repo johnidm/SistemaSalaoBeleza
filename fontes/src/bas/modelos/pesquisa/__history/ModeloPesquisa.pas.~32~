@@ -1,0 +1,25 @@
+unit ModeloPesquisa;
+
+interface
+
+uses
+  Vcl.Controls;
+
+type
+  IBuscaCampo = interface
+    procedure Buscar(AControle: TWinControl);
+  end;
+
+
+
+
+
+
+
+implementation
+
+{ TModeloPesquisa }
+
+
+
+end.

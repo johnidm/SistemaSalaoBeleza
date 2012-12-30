@@ -1,0 +1,11 @@
+unit Recursos;
+
+interface
+
+resourcestring
+  RSInformeNomeCliente = 'Informe o nome do cliente';
+  RSFalhaSalvarCadastro = 'Falha ao salvar cadastro' +#13#10+ '%s';
+
+implementation
+
+end.

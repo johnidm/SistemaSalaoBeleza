@@ -1,0 +1,47 @@
+unit Formulario.CadastroProfissoes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, TelaBase01, Vcl.StdCtrls, AeroButtons,
+  W7Classes, W7Panels, AdvEdit, AdvEdBtn, Modelos.Profissao;
+
+type
+  TFrmCadastroProfissoes = class(TFrmTelaBase01)
+    EdtCodigo: TAdvEditBtn;
+    EdtDescricao: TAdvEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+
+
+    Profissao: TProfissao;
+  public
+    { Public declarations }
+  end;
+
+
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmCadastroProfissoes.FormCreate(Sender: TObject);
+begin
+  inherited;
+
+  Profissao:= TProfissao.Create();
+end;
+
+procedure TFrmCadastroProfissoes.FormDestroy(Sender: TObject);
+begin
+  inherited;
+
+  if ( Assigned( Profissao ) ) then
+    FreeAndNil( Profissao );
+
+end;
+
+end.

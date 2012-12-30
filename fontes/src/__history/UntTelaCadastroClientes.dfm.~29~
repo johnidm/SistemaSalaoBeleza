@@ -1,0 +1,5 @@
+inherited FrmTelaBase1: TFrmTelaBase1
+  Caption = 'FrmTelaBase1'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

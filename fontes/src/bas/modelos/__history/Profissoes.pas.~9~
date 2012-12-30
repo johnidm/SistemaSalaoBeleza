@@ -1,0 +1,26 @@
+unit Profissoe;
+
+interface
+
+uses
+  Modelo,
+  MapaDB;
+
+type
+  TProfissoes = class
+  private
+    FID: Integer;
+    FDescricao: string;
+
+  published
+    [TMapaDB('profissoes', 'id_profissao', [] )]
+    property ID: Integer read FID write FID;
+
+    [TMapaDB('profissoes', 'ds_profissao', [] )]
+    property Descricao: string read FDescricao write FDescricao;
+
+  end;
+
+implementation
+
+end.

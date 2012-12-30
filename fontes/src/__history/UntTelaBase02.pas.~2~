@@ -1,0 +1,25 @@
+unit UntTelaBase02;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntTelaBase00, W7Classes, W7Panels;
+
+type
+  TFrmTelaBase1 = class(TFrmTelaBase00)
+    W7Panel2: TW7Panel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmTelaBase1: TFrmTelaBase1;
+
+implementation
+
+{$R *.dfm}
+
+end.

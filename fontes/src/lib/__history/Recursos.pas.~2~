@@ -1,0 +1,10 @@
+unit Recursos;
+
+interface
+
+resourcestring
+  RSInformeNomeCliente = 'Informe o nome do cliente';
+
+implementation
+
+end.

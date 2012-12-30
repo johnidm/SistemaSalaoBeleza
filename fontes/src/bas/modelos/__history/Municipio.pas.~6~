@@ -1,0 +1,43 @@
+unit Municipio;
+
+interface
+
+
+uses
+  Modelo;
+
+
+type
+  TMunicipio = class(TModelo)
+  private
+    FDescricao: string;
+    FDataExclusao: TDateTime;
+    FID: Integer;
+    FDataManutencao: TDateTime;
+    FDataCadastro: TDateTime;
+    FUsuario: Integer;
+  published
+    [TMapaDB('municipios', 'ID_CIDADE', [atrPesquisa] )]
+    property ID: Integer read FID write FID;
+
+    [TMapaDB('municipios', 'DS_CIDADE', [] )]
+    property Descricao: string read FDescricao write FDescricao;
+
+    [TMapaDB('municipios', 'DT_CADASTRO', [] )]
+    property DataCadastro: TDateTime read FDataCadastro write FDataCadastro;
+
+    [TMapaDB('municipios', 'DT_MANUTENCAO', [] )]
+    property DataManutencao: TDateTime read FDataManutencao write FDataManutencao;
+
+    [TMapaDB('municipios', 'DT_EXCLUSAO', [] )]
+    property DataExclusao: TDateTime read FDataExclusao write FDataExclusao;
+
+    [TMapaDB('municipios', 'CD_USUARIO', [] )]
+    property Usuario: Integer read FUsuario write FUsuario;
+  end;
+
+
+
+implementation
+
+end.

@@ -1,0 +1,52 @@
+inherited FrmTelaAgandaHorario: TFrmTelaAgandaHorario
+  Caption = ''
+  ClientHeight = 579
+  ClientWidth = 970
+  ExplicitWidth = 976
+  ExplicitHeight = 603
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited W7Panel2: TW7Panel
+    Top = 530
+    Width = 970
+    ExplicitTop = 530
+    ExplicitWidth = 970
+  end
+  object W7Panel1: TW7Panel
+    Left = 0
+    Top = 0
+    Width = 225
+    Height = 530
+    Version = '1.0.1.0'
+    Caption = 'W7Panel1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    SolidColor = clBlack
+    InnerBorders = [wpbLeft, wpbTop, wpbRight, wpbBottom]
+    OuterBorders = [wpbRight]
+    Style = wpsCustom
+    FillStyle = pfsSolid
+    ColorA = clBtnFace
+    ColorB = clBtnFace
+    ColorC = clBtnFace
+    ColorD = clBtnFace
+    Align = alLeft
+    ParentFont = False
+    TabOrder = 1
+    ExplicitLeft = 4
+    ExplicitTop = 8
+  end
+  object Panel1: TPanel
+    Left = 225
+    Top = 0
+    Width = 745
+    Height = 530
+    Align = alClient
+    BevelOuter = bvNone
+    BorderWidth = 10
+    TabOrder = 2
+  end
+end

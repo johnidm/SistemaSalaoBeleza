@@ -1,0 +1,75 @@
+unit UntTelaBase01;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, W7Classes, W7Panels,
+  Vcl.ComCtrls, Vcl.ExtCtrls, UntTelaBase00,
+  Vcl.StdCtrls, EditBtn, AeroButtons, UntBasSistema;
+
+type
+  TFrmTelaBase01 = class(TFrmTelaBase00)
+    W7Panel2: TW7Panel;
+    AeroBitBtn1: TAeroBitBtn;
+    AeroBitBtn2: TAeroBitBtn;
+    AeroBitBtn3: TAeroBitBtn;
+    procedure AeroBitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  protected
+   procedure DoShow; override;
+  public
+    { Public declarations }
+    class procedure AbrirTela;
+
+  end;
+
+
+implementation
+
+{$R *.dfm}
+
+class procedure TFrmTelaBase01.AbrirTela;
+var
+  FrmTelaBase: TFrmTelaBase01;
+begin
+  FrmTelaBase:= TFrmTelaBase01.Create(nil);
+  try
+    FrmTelaBase.ShowModal;
+
+  finally
+    if (Assigned(FrmTelaBase)) then
+      FreeAndNil(FrmTelaBase)
+  end;
+end;
+
+
+
+procedure TFrmTelaBase01.AeroBitBtn1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmTelaBase01.DoShow;
+var
+  iTamanhoProporcionalEsquerda, iTamanhoProporcionalTopo: Integer;
+begin
+  inherited;
+
+  iTamanhoProporcionalTopo:=
+    Trunc(
+      ((Sistema.DimencoesAberturaTela.AlturaPadrao - Self.Height) / 2)
+    );
+  
+  iTamanhoProporcionalEsquerda:= 
+    Trunc((Sistema.DimencoesAberturaTela.LarguraPadrao - Self.Width) / 2);
+
+  Self.Top := Sistema.DimencoesAberturaTela.AlturaConteiner + iTamanhoProporcionalTopo;
+  Self.Left:= Sistema.DimencoesAberturaTela.DistanciaEsquerda + iTamanhoProporcionalEsquerda;
+
+end;
+
+
+
+end.

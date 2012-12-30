@@ -1,0 +1,20 @@
+unit Records;
+
+interface
+
+type
+  ///  <summary>
+  ///    Armazena as informações de tamanhos da área de trabalho para abrir os
+  //     formulários no sistema.
+  ///  <summary>
+  TDimencoesAberturaTela = record
+    AlturaConteiner: Integer;
+    DistanciaEsquerda: Integer;
+    LarguraPadrao: Integer;
+    AlturaPadrao: Integer;
+  end;
+
+
+implementation
+
+end.

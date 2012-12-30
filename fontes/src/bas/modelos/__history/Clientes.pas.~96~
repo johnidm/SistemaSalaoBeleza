@@ -1,0 +1,106 @@
+{
+Descrição:
+  Classe que representa os dados do cliente
+
+Histórico de alterações:
+  v1.00 - 10/06/2012
+    - Criação da classe.
+}
+
+unit Clientes;
+
+interface
+
+uses 
+  System.Classes,
+  CommandTextModelos,
+  Modelo,
+  MapaDB;
+
+type
+  TClientes = class(TModelo)
+  private
+    FNome: string;
+    FID: Integer;
+    FCodigo: Integer;
+    FDataNascimento: TDate;
+    FEnderecoCliente: Integer;
+    FProfissao: Integer;
+    FTelefoneCelular: Int64;
+    FTelefoneResidencial: Int64;
+    FTelefoneComercial: Int64;
+    FMSN: string;
+    FObservacao: string;
+    FAgendamentoOnLine: Integer;
+    FFoto: TStream;
+    FDataCadastro: TDateTime;
+    FDataManutencao: TDateTime;
+    FDataExclusao: TDateTime;
+    FUsuario: Integer;
+
+  published
+    [TMapaDB('CLIENTES','CD_CLIENTE', atrPesquisa )]
+    [TMapaControlesTela()]
+    property Codigo: Integer read FCodigo write FCodigo;
+
+    [TMapaDB('CLIENTES', 'NM_CLIENTE', atrNenhum )]
+    [TMapaControlesTela()]
+    property Nome: string read FNome write FNome;
+
+    [TMapaDB('CLIENTES', 'DT_NASCIMENTO', atrNenhum )]
+    [TMapaControlesTela()]
+    property DataNascimento: TDate read FDataNascimento write FDataNascimento;
+
+    [TMapaDB('CLIENTES', 'CD_ENDERECOCLIENTE', atrChaveEstrangeira )]
+    [TMapaControlesTela()]
+    property EnderecoCliente: Integer read FEnderecoCliente write FEnderecoCliente;
+
+    [TMapaControlesTela()]
+    [TMapaDB('CLIENTES', 'CD_PROFISSAO', atrChaveEstrangeira )]
+    property Profissao: Integer read FProfissao write FProfissao;
+
+    [TMapaDB('CLIENTES', 'NU_TELEFONECELULAR', atrNenhum )]
+    [TMapaControlesTela()]
+    property TelefoneCelular: Int64 read FTelefoneCelular write FTelefoneCelular;
+
+    [TMapaDB('CLIENTES', 'NU_TELEFONERESIDENCIAL', atrNenhum )]
+    [TMapaControlesTela()]
+    property TelefoneResidencial: Int64 read FTelefoneResidencial write FTelefoneResidencial;
+
+    [TMapaDB('CLIENTES', 'NU_TELEFONECOMERCIAL', atrNenhum )]
+    [TMapaControlesTela()]
+    property TelefoneComercial: Int64 read FTelefoneComercial write FTelefoneComercial;
+
+    [TMapaDB('CLIENTES', 'TX_MSN', atrNenhum )]
+    property MSN: string read FMSN write FMSN;
+
+    [TMapaDB('CLIENTES', 'TX_OBSERVACAO', atrNenhum )]
+    property Observacao: string read FObservacao write FObservacao;
+
+    [TMapaDB('CLIENTES', 'CD_AGENDAMENTOONLINE', atrChaveEstrangeira )]
+    property AgendamentoOnLine: Integer read FAgendamentoOnLine write FAgendamentoOnLine;
+
+    [TMapaDB('CLIENTES', 'IM_FOTO', atrNenhum )]
+    property Foto: TStream read FFoto write FFoto;
+
+    [TMapaDB('CLIENTES', 'DT_CADASTRO', atrNenhum )]
+    property DataCadastro: TDateTime read FDataCadastro write FDataCadastro;
+
+    [TMapaDB('CLIENTES', 'DT_MANUTENCAO', atrNenhum )]
+    property DataManutencao: TDateTime read FDataManutencao write FDataManutencao;
+
+    [TMapaDB('CLIENTES', 'DT_EXCLUSAO', atrNenhum )]
+    property DataExclusao: TDateTime read FDataExclusao write FDataExclusao;
+
+    [TMapaDB('CLIENTES', 'CD_USUARIO', atrNenhum )]
+    property Usuario: Integer read FUsuario write FUsuario;
+  end;
+
+implementation
+
+{ TClientes }
+
+
+
+end.
+

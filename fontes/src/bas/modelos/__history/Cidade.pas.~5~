@@ -1,0 +1,39 @@
+unit Cidade;
+
+interface
+
+
+uses
+  Modelo;
+
+
+type
+  TCidadee = class(TModelo)
+  published
+    [TMapaDB('CIDADES', 'ID_CIDADE', [atrNenhum] )]
+    property ID: Integer read FID write FID;
+
+    [TMapaDB('CIDADES', 'CD_USUARIO', [atrNenhum] )]
+    property Descricao: string read FDescricao write FDescricao;
+
+
+
+    [TMapaDB('CIDADES', 'DT_CADASTRO', [atrNenhum] )]
+    property DataCadastro: TDateTime read FDataCadastro write FDataCadastro;
+
+    [TMapaDB('CIDADES', 'DT_MANUTENCAO', [atrNenhum] )]
+    property DataManutencao: TDateTime read FDataManutencao write FDataManutencao;
+
+    [TMapaDB('CIDADES', 'DT_EXCLUSAO', [atrNenhum] )]
+    property DataExclusao: TDateTime read FDataExclusao write FDataExclusao;
+
+    [TMapaDB('CIDADES', 'CD_USUARIO', [atrNenhum] )]
+    property Usuario: Integer read FUsuario write FUsuario;
+
+  end;
+
+
+
+implementation
+
+end.

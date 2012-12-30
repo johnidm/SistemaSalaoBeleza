@@ -1,0 +1,24 @@
+unit TelaAgendarHorario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, TelaBase02, W7Classes, W7Panels;
+
+type
+  TFrmAgendarHorario = class(TFrmTelaBase02)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmAgendarHorario: TFrmAgendarHorario;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,16 @@
+unit MapaControlesTela;
+
+interface
+
+type
+  TMapaControlesTela= class(TCustomAttribute)
+
+  published
+    property ControleTela:  read FControleTela write FControleTela;
+
+
+  end;
+
+implementation
+
+end.

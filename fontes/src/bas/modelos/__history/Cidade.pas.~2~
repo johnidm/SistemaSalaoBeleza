@@ -1,0 +1,19 @@
+unit Cidade;
+
+interface
+
+
+uses
+  Modelo;
+
+
+type
+  TCidadee = class(TModelo)
+  private
+  end;
+
+
+
+implementation
+
+end.
